@@ -1,7 +1,10 @@
 .container {
   height: 70vh;
-position: absolute;
-top: -100px;
+  position: absolute;
+  top: -100px;
+  left: -10px;
+
+
 }
 
 .carousel,
@@ -9,7 +12,7 @@ top: -100px;
 .carousel-item {
   height: 90vh;
  width: 100vw;
- display: flex;
+;
 
 
 
