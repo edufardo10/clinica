@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'proyecto';
+  @ViewChild('carousel', { static: true }) carousel: any;
+
+  
+  images = [
+    { path: '../assets/img/img1.jpg' },
+    { path: '../assets/img/img2.jpg' },
+    { path: '../assets/img/img3.jpg' },
+    { path: '../assets/img/img4.jpg' },
+    { path: '../assets/img/img5.jpg' }
+  ];
 }
