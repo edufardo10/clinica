@@ -7,9 +7,9 @@ import { Component, ViewChild } from '@angular/core';
 })
 export class AppComponent {
   title = 'proyecto';
-  @ViewChild('carousel', { static: true }) carousel: any;
 
-  
+
+
   images = [
     { path: '../assets/img/img1.jpg' },
     { path: '../assets/img/img2.jpg' },

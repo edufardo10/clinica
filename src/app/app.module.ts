@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import {SwiperModule} from 'swiper/angular';
 
 
 // Firebase
@@ -25,13 +26,20 @@ import {provideFunctions, getFunctions, connectFunctionsEmulator} from '@angular
 import {provideStorage, getStorage, connectStorageEmulator} from '@angular/fire/storage';
 import { environment } from 'src/environment/environment';
 import { RegistroComponent } from './registro/registro.component';
+import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     RegistroComponent,
     AppComponent,
+    PaginaPrincipalComponent,
+    HeaderComponent,
+
+
   ],
   imports: [
+    SwiperModule,
     MatCardModule,
     BrowserModule,
     BrowserAnimationsModule,
@@ -42,10 +50,10 @@ import { RegistroComponent } from './registro/registro.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
-    MatIconModule,    
+    MatIconModule,
     AppRoutingModule,
     NoopAnimationsModule,
-    CarouselModule,    
+    CarouselModule,
     HttpClientModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => {

@@ -9,14 +9,11 @@ import { PedirCitaComponent } from './pedir-cita/pedir-cita.component';
 
 const routes: Routes = [
   {
-    path: 'test',
-    loadChildren: () => import('./pagina-principal/pagina-principal.module').then(m => m.PaginaPrincipalModule)
-  },  
-  { path: '', component: PaginaPrincipalComponent },
-  { path: 'citas', component: ZonaCitasComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'registro', component: RegistroComponent },
-  { path: 'pedir-cita', component: PedirCitaComponent }
+    path: '',
+    loadChildren: () => import('./pagina-principal/pagina-principal.module').then(m => m.PaginaPrincipalModule),
+
+  },
+
 ];
 
 @NgModule({

@@ -6,12 +6,15 @@ import { PaginaPrincipalComponent } from './pagina-principal.component';
 
 
 @NgModule({
+
   declarations: [
-    PaginaPrincipalComponent
+    
   ],
   imports: [
     CommonModule,
     PaginaPrincipalRoutingModule
+
   ]
+
 })
 export class PaginaPrincipalModule { }
