@@ -25,36 +25,21 @@ import {provideFirestore, getFirestore, connectFirestoreEmulator} from '@angular
 import {provideFunctions, getFunctions, connectFunctionsEmulator} from '@angular/fire/functions';
 import {provideStorage, getStorage, connectStorageEmulator} from '@angular/fire/storage';
 import { environment } from 'src/environment/environment';
-import { RegistroComponent } from './registro/registro.component';
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
-import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
-    RegistroComponent,
     AppComponent,
-    PaginaPrincipalComponent,
-    HeaderComponent,
-
-
   ],
   imports: [
     SwiperModule,
-    MatCardModule,
     BrowserModule,
     BrowserAnimationsModule,
-    FormsModule,
-    MatInputModule,
-    MatButtonModule,
-    MatSelectModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatFormFieldModule,
-    MatIconModule,
     AppRoutingModule,
     NoopAnimationsModule,
     CarouselModule,
     HttpClientModule,
+    MatIconModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => {
       const auth = getAuth();

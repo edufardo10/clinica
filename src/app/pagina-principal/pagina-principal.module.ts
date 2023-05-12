@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { PaginaPrincipalRoutingModule } from './pagina-principal-routing.module';
 import { PaginaPrincipalComponent } from './pagina-principal.component';
+import { RegistroComponent } from '../registro/registro.component';
 
 
 @NgModule({
 
   declarations: [
-    
+    PaginaPrincipalComponent
   ],
   imports: [
     CommonModule,

@@ -13,6 +13,11 @@ const routes: Routes = [
     loadChildren: () => import('./pagina-principal/pagina-principal.module').then(m => m.PaginaPrincipalModule),
 
   },
+  {
+    path: 'registro',
+    loadChildren: () => import('./registro/registro.module').then(m => m.RegistroModule),
+
+  },
 
 ];
 
