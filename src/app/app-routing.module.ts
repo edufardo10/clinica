@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
-import { ZonaCitasComponent } from './zona-citas/zona-citas.component';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { PedirCitaComponent } from './pedir-cita/pedir-cita.component';
@@ -17,6 +16,10 @@ const routes: Routes = [
     path: 'registro',
     loadChildren: () => import('./registro/registro.module').then(m => m.RegistroModule),
 
+  },
+  {
+    path: 'pedir-cita',
+    loadChildren: () => import('./pedir-cita/pedir-cita.module').then(m => m.PedirCitaModule),
   },
 
 ];

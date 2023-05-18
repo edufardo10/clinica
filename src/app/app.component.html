@@ -1,11 +1,10 @@
-
 <header ngClass="{{test}}===header.registro" class="navbar navbar-expand-lg navbar-light">
   <div class="container d-flex align-items-center ms-3">
     <a class="navbar-brand ms-auto" href="#">
-      <img  src="./assets/img/logo4.jpg" width="100" height="100" alt="Logo">
+      <img src="./assets/img/logo4.jpg" width="100" height="100" alt="Logo">
     </a>
-    <h1 (click)="test()">test</h1>
-    <a class="navbar-brand text-white" href="#">Nombre de la empresa</a>
+
+    <a class="navbar-brand text-white" href="#" style="font-size: 46px; font-weight: bold;">Centro Dental Azteca</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -30,4 +29,30 @@
 
 
 <router-outlet></router-outlet>
+
+<footer class="footer mt-5 bg-dark text-light fixed-bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <img  src="./assets/img/logo1.jpg" width="100" height="100" alt="Logo">
+      </div>
+      <div class="col-md-4">
+        <img  src="./assets/img/logo5.jpg" width="100" height="100" alt="Logo">
+      </div>
+      <div class="col-md-4">
+        <img  src="./assets/img/logo6.jpg" width="100" height="100" alt="Logo">
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-4">
+        <h6>Datos de contacto:</h6>
+        <p>Dirección: Calle Atlacomulco, Estado de Mexico, Ecatepec de Morelos</p>
+        <p>Teléfono: 650-30-66-86</p>
+        <p>Email: info@clinicadental.com</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
 
