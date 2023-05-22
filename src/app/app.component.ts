@@ -1,39 +1,47 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit,OnDestroy {
   title = 'proyecto';
-   constructor( private router: Router){
-    console.log(this.router.url);
+  headerClass: string = '';
+  constructor(private router: Router) {}
 
-   }
+  ngOnInit() {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        console.log(event.url);
 
-   ngOnInit(): void {
-    console.log(this.router.url);
-
-   }
-
-   test() {
-    console.log(this.router.url);
-    if (this.router.url==="registro"){
-      return true;
+        this.updateHeaderClass();
+      }
+    });
+  }
+  updateHeaderClass() {
+    const ruta = this.router.url;
+    if (ruta === '/') {
+      this.headerClass = 'navbar';
     }else{
-      return false;
-    }
+      this.headerClass = 'navbarnew';
 
-   }
-   path: string= this.router.url
+    }
+  }
+  path: string = this.router.url;
 
   images = [
     { path: '../assets/img/img1.jpg' },
     { path: '../assets/img/img2.jpg' },
     { path: '../assets/img/img3.jpg' },
     { path: '../assets/img/img4.jpg' },
-    { path: '../assets/img/img5.jpg' }
+    { path: '../assets/img/img5.jpg' },
   ];
+  
+  ngOnDestroy(): void {
+  this.router.events
+
+}
+
 }

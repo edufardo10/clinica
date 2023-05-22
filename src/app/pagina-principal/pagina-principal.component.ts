@@ -9,6 +9,7 @@ import SwiperCore, {
   Swiper,
 } from 'swiper';
 import { ClienteService } from '../services/cliente.service';
+import { Route, Router } from '@angular/router';
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 @Component({
   selector: 'app-pagina-principal',
@@ -26,14 +27,17 @@ export class PaginaPrincipalComponent {
     codigoPostal: 0,
   }
 
-  constructor(private clienteService: ClienteService) {
-/*
-    (async () => {
-      await this.testService.createTest('effefwfew');
-    })(); */
+  constructor(private clienteService: ClienteService,private router:Router) {
+
   }
   async database(){
     await this.clienteService.create(this.cliente)
+   }
+
+
+   moverACitas(){
+    this.router.navigate(["/citas"])
+
    }
 }
 
