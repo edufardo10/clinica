@@ -1,14 +1,8 @@
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSelectModule } from '@angular/material/select';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
-import { MatFormFieldModule } from '@angular/material/form-field';
+
 import { MatIconModule } from '@angular/material/icon';
-import { MatCardModule } from '@angular/material/card';
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,7 +19,6 @@ import {provideFirestore, getFirestore, connectFirestoreEmulator} from '@angular
 import {provideFunctions, getFunctions, connectFunctionsEmulator} from '@angular/fire/functions';
 import {provideStorage, getStorage, connectStorageEmulator} from '@angular/fire/storage';
 import { environment } from 'src/environment/environment';
-import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
 
 @NgModule({
   declarations: [

@@ -8,6 +8,7 @@ import SwiperCore, {
   SwiperOptions,
   Swiper,
 } from 'swiper';
+import { ClienteService } from '../services/cliente.service';
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 @Component({
   selector: 'app-pagina-principal',
@@ -15,29 +16,25 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
   styleUrls: ['./pagina-principal.component.css'],
 })
 export class PaginaPrincipalComponent {
-  /* config: SwiperOptions = {
-    loop: true,
-    slidesPerView: 1,
-    spaceBetween: 50,
-    navigation: false,
-    pagination: { clickable: false },
-    scrollbar: { draggable: true },
-  };
 
-  slides = [
-    {
-      link: '#',
-      image: '../assets/img/img1.jpg',
-    },
-    { link: '#', image: '../assets/img/img2.jpg' },
-    { link: '#', image: '../assets/img/img3.jpg' },
-    { link: '#', image: '../assets/img/img4.jpg' },
-    { link: '#', image: '../assets/img/img5.jpg' },
-  ];
+  cliente: any={
+    nombre:"a",
+    telefono:"91555",
+    direccion:"b",
+    observacion:"c",
+    alergias:"d",
+    codigoPostal: 0,
+  }
 
-  constructor(private testService: TestService) {
+  constructor(private clienteService: ClienteService) {
 /*
     (async () => {
       await this.testService.createTest('effefwfew');
     })(); */
   }
+  async database(){
+    await this.clienteService.create(this.cliente)
+   }
+}
+
+

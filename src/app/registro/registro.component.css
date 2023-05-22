@@ -1,6 +1,5 @@
-.mat-card-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-  }
+.mat-elevation-z4{
+
+  position: relative;
+  top: 170px;
+}

@@ -1,49 +1,31 @@
-import { Component } from '@angular/core';
-import { FormBuilder, NgForm, Validators } from '@angular/forms';
-
-interface Registro {
-  nombre: string;
-  fechaNacimiento: string;
-  genero: string;
-  telefono: string;
-  email: string;
-  alergias: string;
-  observaciones:string;
-}
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css']
 })
-export class RegistroComponent {
+export class RegistroComponent implements OnInit {
+  form: FormGroup;
 
-  generos = [
-    'hombre',
-    'mujer',
-
-  ]
-
-  form = this.fb.group({
-    nombre: ["", Validators.required],
-   /*  fechaNacimiento: ['', ],
-    genero: '',
-    telefono: '',
-    email: '', // asegúrate de que la propiedad email esté definida
-    alergias:'',
-    observaciones:'' */
-  })
-
-  constructor (
-    private fb: FormBuilder,
-  ) {
-
+  constructor(private formBuilder: FormBuilder) {
+    this.form = this.formBuilder.group({
+      nombre: ['', Validators.required],
+      direccion: ['', Validators.required],
+      telefono: ['', Validators.required],
+      alergias: [''],
+      observaciones: [''],
+      codigoPostal: [''],
+      email: ['', [Validators.required, Validators.email]]
+    });
   }
 
-  submit(registroForm: NgForm) {
-    if (registroForm.valid) {
-      // Aquí puedes agregar la lógica para enviar los datos a Firebase
-   /*    console.log(this.registro.email);  */// asegúrate de que la propiedad email esté siendo asignada correctamente
-    }
+  ngOnInit() {}
+
+  submit(event: Event) {
+    event.preventDefault();
+
+    // Aquí puedes agregar la lógica para enviar los datos del formulario
   }
 }

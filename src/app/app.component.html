@@ -1,7 +1,7 @@
 <header ngClass="{{test}}===header.registro" class="navbar navbar-expand-lg navbar-light">
   <div class="container d-flex align-items-center ms-3">
     <a class="navbar-brand ms-auto" href="#">
-      <img src="./assets/img/logo4.jpg" width="100" height="100" alt="Logo">
+      <img src="./assets/img/logo5.jpg" width="100" height="100" alt="Logo">
     </a>
 
     <a class="navbar-brand text-white" href="#" style="font-size: 46px; font-weight: bold;">Centro Dental Azteca</a>
@@ -20,7 +20,10 @@
           <a class="nav-link" href="#"><mat-icon>calendar_today</mat-icon>Citas </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><mat-icon>tag_faces</mat-icon>Sobre Nosotros</a>
+          <a class="nav-link" routerLink="tratamientos"><mat-icon>favorite</mat-icon>Tratamientos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="sobre-nosotros"><mat-icon>tag_faces</mat-icon>Sobre Nosotros</a>
         </li>
       </ul>
     </div>
@@ -30,7 +33,7 @@
 
 <router-outlet></router-outlet>
 
-<footer class="footer mt-5 bg-dark text-light fixed-bottom">
+<footer class="footer mt-5 bg-dark text-light">
   <div class="container">
     <div class="row">
       <div class="col-md-4">

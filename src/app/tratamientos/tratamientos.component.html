@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let tratamiento of tratamientos">
+      <div class="card mb-4">
+        <img [src]="tratamiento.imagen" alt="Imagen del tratamiento">
+        <div class="card-body">
+          <h5 class="card-title">{{ tratamiento.nombre }}</h5>
+          <p class="card-text">{{ tratamiento.descripcion }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
