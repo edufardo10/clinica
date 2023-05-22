@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+
+
 import SwiperCore, {
   Navigation,
   Pagination,
@@ -10,6 +12,7 @@ import SwiperCore, {
 } from 'swiper';
 import { ClienteService } from '../services/cliente.service';
 import { Route, Router } from '@angular/router';
+import { from } from 'rxjs';
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 @Component({
   selector: 'app-pagina-principal',
@@ -17,6 +20,7 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
   styleUrls: ['./pagina-principal.component.css'],
 })
 export class PaginaPrincipalComponent {
+
 
   cliente: any={
     nombre:"a",
@@ -28,6 +32,7 @@ export class PaginaPrincipalComponent {
   }
 
   constructor(private clienteService: ClienteService,private router:Router) {
+
 
   }
   async database(){
