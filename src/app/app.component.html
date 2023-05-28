@@ -1,11 +1,24 @@
 <header [ngClass]="headerClass" class="navbar navbar-expand-lg navbar-light">
   <div class="container d-flex align-items-center ms-3">
     <a class="navbar-brand ms-auto" href="#">
-      <img src="./assets/img/logo11.jpg" width="150" height="150" alt="Logo">
+      <img src="./assets/img/logo11.png" width="150" height="150" alt="Logo" />
     </a>
 
-    <a class="navbar-brand text-white" href="#" style="font-size: 46px; font-weight: bold;">Centro Dental Azteca</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <a
+      class="navbar-brand text-white"
+      href="#"
+      style="font-size: 46px; font-weight: bold"
+      >Centro Dental Azteca</a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-start" id="navbarNav">
@@ -14,39 +27,38 @@
           <a class="nav-link" href="#"> <mat-icon>apps</mat-icon>Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="registro"><mat-icon>account_circle</mat-icon>Registrarse </a>
+          <a class="nav-link" routerLink="registro"
+            ><mat-icon>account_circle</mat-icon>Registrarse</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><mat-icon>calendar_today</mat-icon>Citas </a>
+          <a class="nav-link" href="#"
+            ><mat-icon>calendar_today</mat-icon>Citas</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="tratamientos"><mat-icon>favorite</mat-icon>Tratamientos</a>
+          <a class="nav-link" routerLink="tratamientos"
+            ><mat-icon>favorite</mat-icon>Tratamientos</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="sobre-nosotros"><mat-icon>tag_faces</mat-icon>Sobre Nosotros</a>
+          <a class="nav-link" routerLink="sobre-nosotros"
+            ><mat-icon>tag_faces</mat-icon>Sobre Nosotros</a
+          >
         </li>
       </ul>
+      <button class="custom-button" (click)="moverALogin()">
+        Iniciar sesión
+      </button>
     </div>
   </div>
 </header>
-
 
 <router-outlet></router-outlet>
 
 <footer class="footer mt-5 bg-dark text-light">
   <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <img  src="./assets/img/logo15.png" width="150" height="120" alt="Logo">
-      </div>
-      <div class="col-md-4">
-        <img  src="./assets/img/logo13.png" width="190" height="140" alt="Logo">
-      </div>
-      <div class="col-md-4">
-        <img  src="./assets/img/logo19.png" width="190" height="140" alt="Logo">
-      </div>
-    </div>
-    <hr>
+    <hr />
     <div class="row">
       <div class="col-md-4">
         <h6>Datos de contacto:</h6>
@@ -54,8 +66,102 @@
         <p>Teléfono: 650-30-66-86</p>
         <p>Email: info@clinicadental.com</p>
       </div>
+      <div class="col-md-4">
+        <h6>Horario de atención:</h6>
+        <p>Lunes a viernes: 9:00 a.m. - 6:00 p.m.</p>
+        <p>Sábados: 9:00 a.m. - 1:00 p.m.</p>
+      </div>
+      <div class="col-md-4">
+        <h6>Síguenos en redes sociales:</h6>
+        <ul class="list-unstyled d-flex justify-content-start">
+          <li>
+            <a href="[Enlace de Facebook]" target="_blank">
+              <img
+                src="./assets/img/facebook.png"
+                width="30"
+                height="30"
+                alt="Facebook Logo"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="[Enlace de Instagram]" target="_blank">
+              <img
+                src="./assets/img/instagram.png"
+                width="30"
+                height="30"
+                alt="Instagram Logo"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="[Enlace de Twitter]" target="_blank">
+              <img
+                src="./assets/img/twitter.png"
+                width="30"
+                height="30"
+                alt="Twitter Logo"
+              />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <hr />
+    <div class="row align-items-center">
+      <div class="col-md-2">
+        <img
+          src="./assets/img/logo21.png"
+          width="80"
+          height="80"
+          alt="Tu Logo Pequeño"
+        />
+      </div>
+
+      <div class="col-md-2">
+        <img
+          src="./assets/img/logo22.png"
+          width="80"
+          height="80"
+          alt="Logo"
+        />
+      </div>
+
+      <div class="col-md-2">
+        <img
+          src="./assets/img/logo15.png"
+          width="80"
+          height="80"
+          alt="Logo"
+        />
+      </div>
+
+      <div class="col-md-2">
+        <img
+          src="./assets/img/logo19.png"
+          width="80"
+          height="80"
+          alt="Logo"
+        />
+      </div>
+
+      <div class="col-md-2">
+        <img
+          src="./assets/img/logo27.png"
+          width="80"
+          height="80"
+          alt="Logo"
+        />
+      </div>
+
+      <div class="col-md-2">
+        <img
+          src="./assets/img/logo26.png"
+          width="80"
+          height="80"
+          alt="Logo"
+        />
+      </div>
     </div>
   </div>
 </footer>
-
-

@@ -1,6 +1,7 @@
 .container-full {
 
-  position: relative;
+ margin-top: -200px;
+
 
 }
 
@@ -9,6 +10,7 @@
 .carousel-item {
   height: 90vh;
  width: 100vw;
+ z-index: -1;
 ;
 
 

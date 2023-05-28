@@ -38,10 +38,17 @@ export class AppComponent implements OnInit,OnDestroy {
     { path: '../assets/img/img4.jpg' },
     { path: '../assets/img/img5.jpg' },
   ];
-  
+
+  moverALogin(){
+      this.router.navigate(["/login"])
+
+     }
+
+
+
   ngOnDestroy(): void {
   this.router.events
 
 }
 
-}
+ }
