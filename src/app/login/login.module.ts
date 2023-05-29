@@ -6,8 +6,8 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { LoginComponent } from './login.component';
-import { LoginRoutinModule } from './login-routing.module';
 import { MatButtonModule } from '@angular/material/button';
+import { LoginRoutinModule } from './login-routing.module';
 
 @NgModule({
   declarations: [LoginComponent],

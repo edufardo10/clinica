@@ -4,22 +4,23 @@
       <mat-card-title>Iniciar sesión</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <form>
+      <form [formGroup]="form">
         <div class="form-field">
           <mat-form-field appearance="fill">
             <mat-label>Correo electrónico</mat-label>
-            <input matInput placeholder="Ingrese su correo electrónico" type="email">
+            <input formControlName="email" matInput placeholder="Ingrese su correo electrónico" type="email" />
           </mat-form-field>
         </div>
-
         <div class="form-field">
           <mat-form-field appearance="fill">
             <mat-label>Contraseña</mat-label>
-            <input matInput placeholder="Ingrese su contraseña" type="password">
+            <input formControlName="password" matInput placeholder="Ingrese password" type="password" />
           </mat-form-field>
         </div>
 
-        <button mat-raised-button class="login-button" color="accent">Login</button>
+        <button mat-raised-button color="primary" (click)="submit($event)">
+          Enviar
+        </button>
       </form>
     </mat-card-content>
   </mat-card>
