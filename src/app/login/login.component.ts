@@ -2,37 +2,43 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder,
-    private userService:UserService,
-    private router:Router
-     ) {
+  constructor(
+    private snackBar: MatSnackBar,
+    private formBuilder: FormBuilder,
+    private userService: UserService,
+    private router: Router
+  ) {
     this.form = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['',[Validators.required]]
+      password: ['', [Validators.required]],
     });
   }
 
   ngOnInit() {}
 
   submit(event: Event) {
-    this.userService.register(this.form.get("email")!.value)
-    .then(response=>{
-      console.log(response)
-      response.user.uid
-
-      this.router.navigate([''])
-
-    })
-    .catch(error=>console.log(error));
-
+    this.userService
+      .login(this.form.value)
+      .then((response) => {
+        this.router.navigate(['']);
+        this.openSnackBar();
+      })
+      .catch((error) => console.log(error));
+  }
+  openSnackBar() {
+    this.snackBar.open('Login Correcto', 'Cerrar', {
+      duration: 3000,
+   
+    });
   }
 }

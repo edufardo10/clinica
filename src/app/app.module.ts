@@ -10,6 +10,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import {SwiperModule} from 'swiper/angular';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 // Firebase
@@ -32,6 +33,7 @@ import { environment } from 'src/environment/environment';
     NoopAnimationsModule,
     CarouselModule,
     HttpClientModule,
+    MatSnackBarModule,
     MatIconModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => {
@@ -72,7 +74,7 @@ import { environment } from 'src/environment/environment';
       return Storage
     }),
   ],
-  providers: [],
+  providers: [MatSnackBarModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

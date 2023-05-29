@@ -8,6 +8,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { LoginComponent } from './login.component';
 import { MatButtonModule } from '@angular/material/button';
 import { LoginRoutinModule } from './login-routing.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [LoginComponent],
@@ -19,7 +20,8 @@ import { LoginRoutinModule } from './login-routing.module';
     MatSelectModule,
     MatInputModule,
     LoginRoutinModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule
   ],
 })
 export class LoginModule {}

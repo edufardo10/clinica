@@ -1,15 +1,19 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit,OnDestroy {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'proyecto';
+
   headerClass: string = '';
-  constructor(private router: Router) {}
+  constructor(private router: Router, private userService: UserService) {
+   this.verifyLoggin();
+  }
 
   ngOnInit() {
     this.router.events.subscribe((event) => {
@@ -24,9 +28,8 @@ export class AppComponent implements OnInit,OnDestroy {
     const ruta = this.router.url;
     if (ruta === '/') {
       this.headerClass = 'navbar';
-    }else{
+    } else {
       this.headerClass = 'navbarnew';
-
     }
   }
   path: string = this.router.url;
@@ -39,16 +42,19 @@ export class AppComponent implements OnInit,OnDestroy {
     { path: '../assets/img/img5.jpg' },
   ];
 
-  moverALogin(){
-      this.router.navigate(["/login"])
+  moverALogin() {
+    this.router.navigate(['/login']);
+  }
+  verifyLoggin() {
+    console.log(this.userService.isLogin());
 
-     }
-
-
+    return this.userService.isLogin();
+  }
+  logoutSession(){
+    this.userService.logout();
+  }
 
   ngOnDestroy(): void {
-  this.router.events
-
+    this.router.events;
+  }
 }
-
- }

@@ -19,3 +19,7 @@
   height: 50px;
 }
 
+.custom-snackbar {
+  background-color: green;
+  color: white;
+}
