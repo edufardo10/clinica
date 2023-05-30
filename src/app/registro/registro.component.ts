@@ -4,6 +4,7 @@ import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 import { DocumentService } from '../services/document.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { User } from 'firebase/auth';
 
 @Component({
   selector: 'app-registro',
@@ -40,7 +41,7 @@ export class RegistroComponent implements OnInit {
 
   ngOnInit() {}
 
-  openSnackBar() {
+  openSnackBarPassDiferent() {
     this.snackBar.open('Las contraseñas no son iguales', 'Cerrar', {
       duration: 3000, // Duración en milisegundos
     });
@@ -51,27 +52,43 @@ export class RegistroComponent implements OnInit {
       panelClass: 'custom-snackbar'
     });
   }
+  openSnackBarError() {
+    this.snackBar.open('No se pudo registrar', 'Cerrar', {
+      duration: 3000,
+      panelClass: 'custom-snackbar'
+    });
+  }
 
-  submit(event: Event) {
+  async submit(event: Event) {
+    if (this.form.get('password')?.value === this.form.get('confirmPassword')?.value) {
+    const user = await this.userService.register(this.form.value.email, this.form.value.password, this.form.value.nombre);
+    if (user) {
+      await this.userService.create({...this.form.value, id: user.uid});
+      this.openSnackBarCreate();
+    } else {
+        this.openSnackBarError();
 
-    if (
-      this.form.get('password')?.value ===
-      this.form.get('confirmPassword')?.value
-    ) {
+    }
+    }else{
+       this.openSnackBarPassDiferent();
+    }
+  }
+/*      {
       this.userService
-        .register({
-          email: this.form.get('email')!.value,
-          password: this.form.get('password')!.value,
-        })
+        .register(
+          this.form.get('email')!.value,
+          this.form.get('password')!.value,
+          this.form.value.nombre,
+        )
         .then(async response => {
-         await this.documentservice.create("/clientes",this.form.value)
+          if (response) {
+            await this.documentservice.create("/clientes", {...this.form.value, id: response.uid})
+          }
          this.openSnackBarCreate();
-
         })
         .catch((error) => console.log(error));
     } else {
-      this.openSnackBar()
-
+      this.openSnackBar();
     }
-  }
+  } */
 }

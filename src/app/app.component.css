@@ -23,14 +23,55 @@
 .custom-button:hover {
   background-color: lightblue;
 }
-.icon{
-  width: 500px;
-}
+
 
 footer {
   background-color: rgb(0, 0, 0);
   width: 100%;
 }
+.avatar-container {
+  display: inline-block;
+  text-align: left;
+
+
+}
+
+
+.avatar-pic {
+  width: 120px;
+  height: 120px;
+  display: block;
+  margin: 0 auto;
+
+
+
+
+}
+
+
+
+.name{
+  font-size: 35px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
+  color: white
+}
+.box-avatar{
+
+  margin-right: -470px;
+  margin-bottom: 20px;
+  text-align: center;
+
+}
+
+  .registro {
+
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+
 @media (max-width: 407px) {
   footer {
     text-align: center;

@@ -24,15 +24,17 @@
     <div class="collapse navbar-collapse justify-content-start" id="navbarNav">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#"> <mat-icon>apps</mat-icon>Inicio</a>
+          <a class="nav-link" routerLink=""> <mat-icon>apps</mat-icon>Inicio</a>
         </li>
+        <ng-container *ngIf="!(user$ | async) as user">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="registro"
+              ><mat-icon>account_circle</mat-icon>Registrarse</a
+            >
+          </li>
+        </ng-container>
         <li class="nav-item">
-          <a class="nav-link" routerLink="registro"
-            ><mat-icon>account_circle</mat-icon>Registrarse</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"
+          <a class="nav-link" routerLink="pedir-cita"
             ><mat-icon>calendar_today</mat-icon>Citas</a
           >
         </li>
@@ -47,18 +49,25 @@
           >
         </li>
       </ul>
-      <ng-container
-        *ngIf="verifyLoggin(); then changeStatus; else originalStatus"
-      ></ng-container>
-      <ng-template #changeStatus>
-        <mat-icon  class="mat-icon-lg"  (click)="logoutSession()">account_box</mat-icon>
-      </ng-template>
-      <ng-template #originalStatus>
-        <button class="custom-button" (click)="moverALogin()">
-          Iniciar sesión
-        </button>
-      </ng-template>
+      <ng-container *ngIf="user$ | async as user">
+        <div class="box-avatar">
+          <img
+            src="./assets/img/avatar2.png"
+            class="avatar-pic"
+            (click)="logoutSession()"
+          />
+          <h1 class="name">{{ user.displayName }}</h1>
+        </div>
+      </ng-container>
     </div>
+
+    <button
+      *ngIf="!(user$ | async)"
+      class="custom-button"
+      (click)="moverALogin()"
+    >
+      Iniciar sesión
+    </button>
   </div>
 </header>
 

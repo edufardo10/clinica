@@ -4,6 +4,7 @@ import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -32,13 +33,23 @@ export class LoginComponent implements OnInit {
       .then((response) => {
         this.router.navigate(['']);
         this.openSnackBar();
+        this.userService.showUser()
+
+
       })
       .catch((error) => console.log(error));
+      this.openSnackBarErrorLogin();
   }
   openSnackBar() {
     this.snackBar.open('Login Correcto', 'Cerrar', {
       duration: 3000,
-   
+
+    });
+  }
+  openSnackBarErrorLogin() {
+    this.snackBar.open('Login Incorrecto', 'Cerrar', {
+      duration: 3000,
+
     });
   }
 }

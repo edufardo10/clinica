@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PedirCitaComponent } from './pedir-cita.component';
 import { PedirCitaRoutingModule } from './pedir-cita-routing.module';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
+
+
 
 
 
@@ -11,7 +15,8 @@ import { PedirCitaRoutingModule } from './pedir-cita-routing.module';
   ],
   imports: [
     CommonModule,
-    PedirCitaRoutingModule
+    PedirCitaRoutingModule,
+   MatDatepickerModule
   ]
 })
 export class PedirCitaModule { }

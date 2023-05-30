@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { UserService } from './services/user.service';
+import { DocumentService } from './services/document.service';
+import { firstValueFrom } from 'rxjs/internal/firstValueFrom';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +11,16 @@ import { UserService } from './services/user.service';
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'proyecto';
+  test: any;
+  nombre: string = '';
+  user$ = this.userService.user;
 
   headerClass: string = '';
-  constructor(private router: Router, private userService: UserService) {
-   this.verifyLoggin();
+  constructor(
+    private router: Router,
+    private userService: UserService,
+  ) {
+    this.verifyLoggin();
   }
 
   ngOnInit() {
@@ -46,13 +54,12 @@ export class AppComponent implements OnInit, OnDestroy {
     this.router.navigate(['/login']);
   }
   verifyLoggin() {
-    console.log(this.userService.isLogin());
-
     return this.userService.isLogin();
   }
-  logoutSession(){
+  logoutSession() {
     this.userService.logout();
   }
+  
 
   ngOnDestroy(): void {
     this.router.events;
