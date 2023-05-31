@@ -41,7 +41,7 @@ export class PaginaPrincipalComponent {
 
 
    moverACitas(){
-    this.router.navigate(["/citas"])
+    this.router.navigate(["pedir-cita"])
 
    }
 }

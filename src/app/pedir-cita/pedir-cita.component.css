@@ -1,19 +1,4 @@
-.container {
-  display: flex;
-}
 
-.select-container {
-  flex: 1;
-}
-
-.calendar-container {
-  flex: 1;
-  margin-left: 20px; /* Ajusta el margen izquierdo según tus necesidades */
-}
-.example-additional-selection {
-  opacity: 0.75;
-  font-size: 0.75em;
-}
 
 h1{
   text-align: center;
@@ -31,6 +16,7 @@ text-decoration: underline;
   margin-top: 50px;
   margin-left: 500px;
   max-width:800px;
+  
 }
 
 .label{

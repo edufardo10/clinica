@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { LoginRoutinModule } from './login-routing.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
+
 @NgModule({
   declarations: [LoginComponent],
   imports: [
@@ -21,7 +22,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatInputModule,
     LoginRoutinModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+   
   ],
 })
 export class LoginModule {}

@@ -18,3 +18,9 @@
   width: 70%;
   font-size: 16px;
 }
+
+::ng-deep .mat-mdc-snack-bar-container.verde {
+  --mat-mdc-snack-bar-button-color: #ffffff;
+  --mdc-snackbar-container-color: #177d00;
+  --mdc-snackbar-supporting-text-color: rgba(92, 20, 73, 0.87);
+}

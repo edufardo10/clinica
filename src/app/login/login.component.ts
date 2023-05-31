@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
   }
   openSnackBar() {
     this.snackBar.open('Login Correcto', 'Cerrar', {
-      duration: 3000,
+      panelClass: 'verde'
 
     });
   }
