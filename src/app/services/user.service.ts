@@ -53,9 +53,7 @@ export class UserService {
   showUser() {
     return this.auth.currentUser;
   }
-  showUserUid() {
-    return this.auth.currentUser?.uid;
-  }
+  
   isLogin() {
     if (this.auth.currentUser !== null) {
       return true;

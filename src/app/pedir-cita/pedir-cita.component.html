@@ -1,26 +1,31 @@
-<h1>Asigne una cita</h1>
-<form [formGroup]="form" class="mt-5">
-  <mat-form-field>
-    <mat-label>Tratamientos</mat-label>
-    <mat-select formControlName="tratamiento">
-      <mat-option
-        *ngFor="let tratamiento of tratamientosComponent.tratamientos"
-        [value]="tratamiento.nombre"
-        >{{ tratamiento.nombre }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Verbose datepicker</mat-label>
-    <input matInput [matDatepicker]="dp" formControlName="fecha" />
-    <mat-hint>MMMM DD, YYYY</mat-hint>
-    <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
-    <mat-datepicker #dp></mat-datepicker>
-  </mat-form-field>
+<div class="contenedor">
+  <h1 class="text-center">Asigne una cita</h1>
+  <form [formGroup]="form" class="mt-5">
+    <div class="form-group">
+      <label class="label">Elige el tratamiento que desea recibir</label>
+      <mat-form-field>
+        <mat-select formControlName="tratamiento">
+          <mat-option
+            *ngFor="let tratamiento of tratamientosComponent.tratamientos"
+            [value]="tratamiento.nombre"
+          >
+            {{ tratamiento.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <label class="label">Elige una fecha</label>
+      <mat-form-field>
+        <input matInput [matDatepicker]="dp" formControlName="fecha" />
+        <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+        <mat-datepicker #dp></mat-datepicker>
+        <mat-hint class="form-text text-muted">MM, DD, YYYY</mat-hint>
+      </mat-form-field>
 
-
-
-  <button mat-button color="primary" mat-raised-button (click)="onSubmit()">
-    Selecciona fecha y tratamiento
-  </button>
-</form>
+    </div>
+    <button mat-raised-button color="primary" class="button" (click)="onSubmit()">
+      Selecciona fecha y tratamiento
+    </button>
+  </form>
+</div>

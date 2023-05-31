@@ -33,11 +33,13 @@
             >
           </li>
         </ng-container>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="pedir-cita"
-            ><mat-icon>calendar_today</mat-icon>Citas</a
-          >
-        </li>
+        <ng-container *ngIf="(user$ | async) as user">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="pedir-cita"
+              ><mat-icon>calendar_today</mat-icon>Citas</a
+            >
+          </li>
+        </ng-container>
         <li class="nav-item">
           <a class="nav-link" routerLink="tratamientos"
             ><mat-icon>favorite</mat-icon>Tratamientos</a
