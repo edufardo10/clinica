@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+}
+
+.select-container {
+  flex: 1;
+}
+
+.calendar-container {
+  flex: 1;
+  margin-left: 20px; /* Ajusta el margen izquierdo según tus necesidades */
+}
+.example-additional-selection {
+  opacity: 0.75;
+  font-size: 0.75em;
+}

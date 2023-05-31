@@ -20,6 +20,8 @@ import {provideFirestore, getFirestore, connectFirestoreEmulator} from '@angular
 import {provideFunctions, getFunctions, connectFunctionsEmulator} from '@angular/fire/functions';
 import {provideStorage, getStorage, connectStorageEmulator} from '@angular/fire/storage';
 import { environment } from 'src/environment/environment';
+import { MatDatepicker } from '@angular/material/datepicker';
+import { DateAdapter } from '@angular/material/core';
 
 @NgModule({
   declarations: [

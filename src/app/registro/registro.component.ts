@@ -14,17 +14,12 @@ import { User } from 'firebase/auth';
 export class RegistroComponent implements OnInit {
   form: FormGroup;
 
-
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
     private router: Router,
-    private documentservice:DocumentService,
+    private documentservice: DocumentService,
     private snackBar: MatSnackBar
-
-
-
-
   ) {
     this.form = this.formBuilder.group({
       nombre: ['', Validators.required],
@@ -49,46 +44,34 @@ export class RegistroComponent implements OnInit {
   openSnackBarCreate() {
     this.snackBar.open('Usuario creado', 'Cerrar', {
       duration: 3000,
-      panelClass: 'custom-snackbar'
+      panelClass: 'custom-snackbar',
     });
   }
   openSnackBarError() {
     this.snackBar.open('No se pudo registrar', 'Cerrar', {
       duration: 3000,
-      panelClass: 'custom-snackbar'
+      panelClass: 'custom-snackbar',
     });
   }
 
   async submit(event: Event) {
-    if (this.form.get('password')?.value === this.form.get('confirmPassword')?.value) {
-    const user = await this.userService.register(this.form.value.email, this.form.value.password, this.form.value.nombre);
-    if (user) {
-      await this.userService.create({...this.form.value, id: user.uid});
-      this.openSnackBarCreate();
-    } else {
+    if (
+      this.form.get('password')?.value ===
+      this.form.get('confirmPassword')?.value
+    ) {
+      const user = await this.userService.register(
+        this.form.value.email,
+        this.form.value.password,
+        this.form.value.nombre
+      );
+      if (user) {
+        await this.userService.create({ ...this.form.value, id: user.uid });
+        this.openSnackBarCreate();
+      } else {
         this.openSnackBarError();
-
-    }
-    }else{
-       this.openSnackBarPassDiferent();
+      }
+    } else {
+      this.openSnackBarPassDiferent();
     }
   }
-/*      {
-      this.userService
-        .register(
-          this.form.get('email')!.value,
-          this.form.get('password')!.value,
-          this.form.value.nombre,
-        )
-        .then(async response => {
-          if (response) {
-            await this.documentservice.create("/clientes", {...this.form.value, id: response.uid})
-          }
-         this.openSnackBarCreate();
-        })
-        .catch((error) => console.log(error));
-    } else {
-      this.openSnackBar();
-    }
-  } */
 }
