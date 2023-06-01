@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-
-
+import { UserService } from '../services/user.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import SwiperCore, {
   Navigation,
@@ -12,7 +12,7 @@ import SwiperCore, {
 } from 'swiper';
 import { ClienteService } from '../services/cliente.service';
 import { Route, Router } from '@angular/router';
-import { from } from 'rxjs';
+import { firstValueFrom, from } from 'rxjs';
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 @Component({
   selector: 'app-pagina-principal',
@@ -20,30 +20,25 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
   styleUrls: ['./pagina-principal.component.css'],
 })
 export class PaginaPrincipalComponent {
+  user$ = this.userService.user;
 
+  constructor(
+    private clienteService: ClienteService,
+    private router: Router,
+    private userService: UserService,
+    private snackBar: MatSnackBar
+  ) {}
 
-  cliente: any={
-    nombre:"a",
-    telefono:"91555",
-    direccion:"b",
-    observacion:"c",
-    alergias:"d",
-    codigoPostal: 0,
+  moverACitas() {
+    this.router.navigate(['pedir-cita']);
   }
-
-  constructor(private clienteService: ClienteService,private router:Router) {
-
-
+  async openSnackBar() {
+    this.snackBar.open(
+      'Primero debes estar logueado, para pedir una cita',
+      'Cerrar',
+      {
+        duration: 3000,
+      }
+    );
   }
-  async database(){
-    await this.clienteService.create(this.cliente)
-   }
-
-
-   moverACitas(){
-    this.router.navigate(["pedir-cita"])
-
-   }
 }
-
-

@@ -22,10 +22,12 @@ import {provideStorage, getStorage, connectStorageEmulator} from '@angular/fire/
 import { environment } from 'src/environment/environment';
 import { MatDatepicker } from '@angular/material/datepicker';
 import { DateAdapter } from '@angular/material/core';
+import { AdministrarComponent } from './administrar/administrar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    AdministrarComponent,
   ],
   imports: [
     SwiperModule,

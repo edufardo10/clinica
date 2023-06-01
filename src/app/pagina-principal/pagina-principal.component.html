@@ -38,7 +38,12 @@
           <p>Bienvenid@</p>
           <p>En CDA contamos con más de 20 años de experiencia ofreciendo el mejor servicio a nuestros pacientes de forma personalizada y familiar. Nos esforzamos cada día por ser el centro de referencia dental en el que nos hemos convertido gracias a que aunamos la última tecnología, los profesionales mejor formados y unos tratamientos dentales de calidad y con todas las garantías de éxito.</p>
           <p>¿ES TU PRIMERA VISITA?</p>
+          <ng-container *ngIf="(user$ | async) as user">
           <button class="btn btn-primary" (click)="moverACitas()">Pida cita ahora</button>
+        </ng-container>
+        <ng-container *ngIf="!(user$ | async) as user">
+          <button class="btn btn-primary" (click)="openSnackBar()">Pida cita ahora</button>
+        </ng-container>
         </div>
       </div>
     </div>
@@ -126,7 +131,7 @@
             <img src="./assets/img/5s-removal.png" class="star">
             </div>
             <hr>
-            <p class="card-text-opinion">"Quiero agradecer al equipo de la Clínica Dental por su excelente atención y cuidado. La Dra. Mariana V. Muñoz Galindo fue muy paciente y comprensiva durante mi tratamiento de conducto radicular. Su profesionalismo y habilidad me hicieron sentir cómodo y confiado durante todo el proceso. Recomiendo totalmente esta clínica para cualquier persona que necesite atención dental de calidad." - Carlos Martínez.</p>
+            <p class="card-text-opinion">"Quiero agradecer al equipo de la Clínica Dental por su excelente atención y cuidado. La Dra. Mariana V. Muñoz Galindo fue muy paciente y comprensiva durante mi tratamiento de conducto radicular. Su profesionalismo y habilidad me hicieron sentir cómodo y confiado durante todo el proceso. Recomiendo totalmente esta clínica para cualquier persona que necesite atención dental de calidad." - Luz Martínez.</p>
           </div>
         </div>
       </div>

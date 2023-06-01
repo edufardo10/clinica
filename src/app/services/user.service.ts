@@ -7,34 +7,33 @@ import {
   signInWithEmailAndPassword,
   signOut,
   updateProfile,
-  user
+  user,
 } from '@angular/fire/auth';
-import {firstValueFrom} from "rxjs"
+import { BehaviorSubject, firstValueFrom } from 'rxjs';
 
-import {switchMap} from "rxjs"
+import { switchMap } from 'rxjs';
 import { DocumentService } from './document.service';
 import { DocumentData, DocumentReference } from 'firebase/firestore';
 
 @Injectable({
   providedIn: 'root',
 })
-
 export class UserService {
-  constructor(
-    private auth: Auth,
-    private documentService: DocumentService) {}
+  constructor(private auth: Auth, private documentService: DocumentService) {}
 
   user = authState(this.auth);
+  private isAdmin = new BehaviorSubject<boolean>(false);
+  isAdmin$ = this.isAdmin.asObservable();
 
   get(uid: string) {
-       return this.documentService.get<any>('contracts/' + uid)
+    return this.documentService.get<any>('contracts/' + uid);
   }
 
   async register(email: string, password: string, displayName: string) {
     await createUserWithEmailAndPassword(this.auth, email, password);
-    const user = await firstValueFrom(this.user)
-    if(user) {
-      await updateProfile(user, {displayName: displayName, photoURL: ""})
+    const user = await firstValueFrom(this.user);
+    if (user) {
+      await updateProfile(user, { displayName: displayName, photoURL: '' });
     }
     return user;
   }
@@ -43,17 +42,27 @@ export class UserService {
     return await this.documentService.create('clientes', user);
   }
 
+  async login({ email, password }: any) {
+    const credentials = await signInWithEmailAndPassword(
+      this.auth,
+      email,
+      password
+    );
+    if (credentials.user.uid === 'jpi7pWAUrDN67UDKB5aGcFAQVni2') {
+      this.isAdmin.next(true)
+    }
+    return credentials;
+  }
 
-  login({ email, password }: any) {
-    return signInWithEmailAndPassword(this.auth, email, password);
+  async logout() {
+    this.isAdmin.next(false);
+    return await signOut(this.auth);
   }
-  logout() {
-    return signOut(this.auth);
-  }
+
   showUser() {
     return this.auth.currentUser;
   }
-  
+
   isLogin() {
     if (this.auth.currentUser !== null) {
       return true;

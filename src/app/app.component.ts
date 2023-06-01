@@ -14,13 +14,17 @@ export class AppComponent implements OnInit, OnDestroy {
   test: any;
   nombre: string = '';
   user$ = this.userService.user;
+ admin=this.userService.isAdmin$
+
+
 
   headerClass: string = '';
-  constructor(
-    private router: Router,
-    private userService: UserService,
-  ) {
+  constructor(private router: Router, private userService: UserService) {
     this.verifyLoggin();
+
+
+
+
   }
 
   ngOnInit() {
@@ -59,7 +63,6 @@ export class AppComponent implements OnInit, OnDestroy {
   logoutSession() {
     this.userService.logout();
   }
-  
 
   ngOnDestroy(): void {
     this.router.events;

@@ -22,9 +22,26 @@
         <mat-datepicker #dp></mat-datepicker>
         <mat-hint class="form-text text-muted">MM, DD, YYYY</mat-hint>
       </mat-form-field>
-
     </div>
-    <button mat-raised-button color="primary" class="button" (click)="onSubmit()">
+    <div class="form-group">
+      <label class="label">Elige la Hora</label>
+      <mat-form-field>
+        <mat-select formControlName="hora">
+          <mat-option
+            *ngFor="let hora of horas"
+            [value]="hora"
+          >
+            {{ hora }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <button
+      mat-raised-button
+      color="primary"
+      class="button"
+      (click)="onSubmit()"
+    >
       Selecciona fecha y tratamiento
     </button>
   </form>

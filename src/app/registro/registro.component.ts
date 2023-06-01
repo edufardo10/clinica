@@ -38,19 +38,22 @@ export class RegistroComponent implements OnInit {
 
   openSnackBarPassDiferent() {
     this.snackBar.open('Las contraseñas no son iguales', 'Cerrar', {
-      duration: 3000, // Duración en milisegundos
+      duration: 3000,
+      panelClass: 'rojo'
     });
   }
   openSnackBarCreate() {
     this.snackBar.open('Usuario creado', 'Cerrar', {
       duration: 3000,
-      panelClass: 'custom-snackbar',
+      panelClass: 'verde'
+
     });
   }
   openSnackBarError() {
     this.snackBar.open('No se pudo registrar', 'Cerrar', {
       duration: 3000,
-      panelClass: 'custom-snackbar',
+      panelClass: 'rojo'
+
     });
   }
 
@@ -67,6 +70,7 @@ export class RegistroComponent implements OnInit {
       if (user) {
         await this.userService.create({ ...this.form.value, id: user.uid });
         this.openSnackBarCreate();
+        this.router.navigate(['']);
       } else {
         this.openSnackBarError();
       }

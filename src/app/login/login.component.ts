@@ -42,13 +42,15 @@ export class LoginComponent implements OnInit {
   }
   openSnackBar() {
     this.snackBar.open('Login Correcto', 'Cerrar', {
+      duration: 3000,
       panelClass: 'verde'
 
     });
   }
   openSnackBarErrorLogin() {
-    this.snackBar.open('Login Incorrecto', 'Cerrar', {
+    this.snackBar.open('Login Incorrecto o no estas registrado', 'Cerrar', {
       duration: 3000,
+      panelClass: 'rojo'
 
     });
   }

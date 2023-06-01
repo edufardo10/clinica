@@ -50,6 +50,13 @@
             ><mat-icon>tag_faces</mat-icon>Sobre Nosotros</a
           >
         </li>
+        <ng-container *ngIf="(admin | async) as admin">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="administrar"
+              ><mat-icon>book</mat-icon>Administrar</a
+            >
+          </li>
+        </ng-container>
       </ul>
       <ng-container *ngIf="user$ | async as user">
         <div class="box-avatar">
@@ -89,14 +96,15 @@
       </div>
       <div class="col-md-4">
         <h6>Horario de atención:</h6>
-        <p>Lunes a viernes: 9:00 a.m. - 6:00 p.m.</p>
-        <p>Sábados: 9:00 a.m. - 1:00 p.m.</p>
+        <p>Lunes a viernes: 9:00 a.m. - 21:00 p.m.</p>
+        <p>Sábados: 9:00 a.m. - 21:00 p.m.</p>
+        <p>Domingos: 9:00 a.m. - 21:00 p.m.</p>
       </div>
       <div class="col-md-4">
         <h6>Síguenos en redes sociales:</h6>
         <ul class="list-unstyled d-flex justify-content-start">
           <li>
-            <a href="[Enlace de Facebook]" target="_blank">
+            <a href="https://www.facebook.com/profile.php?id=100093152713657" target="_blank">
               <img
                 src="./assets/img/facebook.png"
                 width="30"
@@ -106,13 +114,15 @@
             </a>
           </li>
           <li>
-            <a href="[Enlace de Instagram]" target="_blank">
+            <a href="https://www.instagram.com/cda1991/" target="_blank">
               <img
                 src="./assets/img/instagram.png"
                 width="30"
                 height="30"
                 alt="Instagram Logo"
+
               />
+
             </a>
           </li>
           <li>
@@ -122,8 +132,10 @@
                 width="30"
                 height="30"
                 alt="Twitter Logo"
+
               />
             </a>
+
           </li>
         </ul>
       </div>

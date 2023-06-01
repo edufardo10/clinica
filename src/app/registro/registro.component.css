@@ -19,7 +19,15 @@
   height: 50px;
 }
 
-.custom-snackbar {
-  background-color: green;
-  color: white;
+::ng-deep .mat-mdc-snack-bar-container.verde {
+  --mat-mdc-snack-bar-button-color: #ffffff;
+  --mdc-snackbar-container-color: #177d00;
+  --mdc-snackbar-supporting-text-color: rgba(92, 20, 73, 0.87);
+}
+
+
+::ng-deep .mat-mdc-snack-bar-container.rojo {
+  --mat-mdc-snack-bar-button-color: #ffffff;
+  --mdc-snackbar-container-color: #c32f02;
+  --mdc-snackbar-supporting-text-color: rgba(255, 255, 255, 0.87);
 }
