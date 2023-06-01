@@ -28,6 +28,7 @@ export class UserService {
   get(uid: string) {
     return this.documentService.get<any>('contracts/' + uid);
   }
+  
 
   async register(email: string, password: string, displayName: string) {
     await createUserWithEmailAndPassword(this.auth, email, password);

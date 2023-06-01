@@ -27,7 +27,6 @@ import { AdministrarComponent } from './administrar/administrar.component';
 @NgModule({
   declarations: [
     AppComponent,
-    AdministrarComponent,
   ],
   imports: [
     SwiperModule,
