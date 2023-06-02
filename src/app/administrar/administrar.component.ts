@@ -7,26 +7,29 @@ import { firstValueFrom } from 'rxjs';
   styleUrls: ['./administrar.component.css'],
 })
 export class AdministrarComponent {
-  dataSource:any;
-  displayedColumns = ['displayName','fecha','hora','id','idCliente']
-  constructor(
+  clientes: any;
+  citas:any;
+  dataSource: any;
+  displayedColumnsCitas = ['displayName', 'fecha', 'hora', 'tratamiento', 'idCliente','actions'];
+  displayedColumnsClientes = ['displayName', 'id', 'telefono', 'email'];
+  constructor(private adminsitraService: AdministrarService) {
+    this.getClientes();
+    this.getCitas();
+  }
+  async getClientes() {
+    this.clientes = await firstValueFrom(this.adminsitraService.getClientes());
 
-    private adminsitraService: AdministrarService
-  ) {
-    this.getCitas()
+
+  }
+  async getCitas() {
+    this.citas = await firstValueFrom(this.adminsitraService.getCitas());
+
+
   }
 
-  async getCitas() {
-     this.dataSource = await firstValueFrom(this.adminsitraService.getCitas());
-    console.log(this.dataSource);
-
-
-}
-
-obtenerFechaLegible(fechaTimestamp: any): string {
-  const segundos = fechaTimestamp.seconds;
-  const fecha = new Date(segundos * 1000);
-  return fecha.toLocaleDateString('es-ES');
-}
-
+  obtenerFechaLegible(fechaTimestamp: any): string {
+    const segundos = fechaTimestamp.seconds;
+    const fecha = new Date(segundos * 1000);
+    return fecha.toLocaleDateString('es-ES');
+  }
 }

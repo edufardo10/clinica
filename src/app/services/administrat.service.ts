@@ -15,7 +15,9 @@ export class AdministrarService {
  getCitas() {
    return this.documentService.list<any>('citas')
 }
-
+getClientes() {
+  return this.documentService.list<any>('clientes')
+}
 }
 
 
