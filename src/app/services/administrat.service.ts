@@ -10,6 +10,7 @@ import { firstValueFrom } from 'rxjs/internal/firstValueFrom';
 })
 
 export class AdministrarService {
+
   constructor(private auth: Auth, private documentService: DocumentService) {}
 
  getCitas() {
@@ -18,6 +19,10 @@ export class AdministrarService {
 getClientes() {
   return this.documentService.list<any>('clientes')
 }
+async validateCita(cita: any) {
+  await this.documentService.update('citas',cita);
+}
+
 }
 
 

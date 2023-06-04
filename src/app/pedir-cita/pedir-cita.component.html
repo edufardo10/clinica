@@ -1,5 +1,10 @@
-<div class="contenedor">
-  <h1 class="text-center">Asigne una cita</h1>
+<div class="contenedor"  *ngIf="user$ | async" >
+  <ng-container *ngIf="citas$ | async">
+    
+    <h2>{{citasClientes[0].validateCita}}</h2>
+
+  </ng-container>
+  <h1 class="text-center"  >Asigne una cita</h1>
   <form [formGroup]="form" class="mt-5">
     <div class="form-group">
       <label class="label">Elige el tratamiento que desea recibir</label>
@@ -46,3 +51,4 @@
     </button>
   </form>
 </div>
+<hr>

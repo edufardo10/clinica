@@ -24,11 +24,10 @@ export class UserService {
   user = authState(this.auth);
   private isAdmin = new BehaviorSubject<boolean>(false);
   isAdmin$ = this.isAdmin.asObservable();
-
   get(uid: string) {
     return this.documentService.get<any>('contracts/' + uid);
   }
-  
+
 
   async register(email: string, password: string, displayName: string) {
     await createUserWithEmailAndPassword(this.auth, email, password);
@@ -50,7 +49,7 @@ export class UserService {
       password
     );
     if (credentials.user.uid === 'jpi7pWAUrDN67UDKB5aGcFAQVni2') {
-      this.isAdmin.next(true)
+      this.isAdmin.next(true);
     }
     return credentials;
   }

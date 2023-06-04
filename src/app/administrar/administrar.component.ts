@@ -8,9 +8,16 @@ import { firstValueFrom } from 'rxjs';
 })
 export class AdministrarComponent {
   clientes: any;
-  citas:any;
+  citas: any;
   dataSource: any;
-  displayedColumnsCitas = ['displayName', 'fecha', 'hora', 'tratamiento', 'idCliente','actions'];
+  displayedColumnsCitas = [
+    'displayName',
+    'fecha',
+    'hora',
+    'tratamiento',
+    'idCliente',
+    'actions',
+  ];
   displayedColumnsClientes = ['displayName', 'id', 'telefono', 'email'];
   constructor(private adminsitraService: AdministrarService) {
     this.getClientes();
@@ -18,13 +25,12 @@ export class AdministrarComponent {
   }
   async getClientes() {
     this.clientes = await firstValueFrom(this.adminsitraService.getClientes());
-
-
   }
   async getCitas() {
     this.citas = await firstValueFrom(this.adminsitraService.getCitas());
-
-
+  }
+  setCita(id: string, acept: boolean) {
+    this.adminsitraService.validateCita({ validateCita: acept, id: id });
   }
 
   obtenerFechaLegible(fechaTimestamp: any): string {
