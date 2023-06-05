@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuardGuard } from './guards/auth-guard.guard';
+
 
 const routes: Routes = [
   {
@@ -8,16 +10,19 @@ const routes: Routes = [
       import('./pagina-principal/pagina-principal.module').then(
         (m) => m.PaginaPrincipalModule
       ),
+
   },
   {
     path: 'registro',
     loadChildren: () =>
       import('./registro/registro.module').then((m) => m.RegistroModule),
+
   },
   {
     path: 'pedir-cita',
     loadChildren: () =>
       import('./pedir-cita/pedir-cita.module').then((m) => m.PedirCitaModule),
+      canActivate:[AuthGuardGuard]
   },
   {
     path: 'tratamientos',
@@ -37,12 +42,16 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () =>
       import('./login/login.module').then((m) => m.LoginModule),
+
+
   },
   {
     path: 'administrar',
     loadChildren: () =>
       import('./administrar/administrar.module').then((m) => m.AdministrarModule),
+      canActivate:[AuthGuardGuard]
   },
+
 
 ];
 

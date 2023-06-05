@@ -6,6 +6,8 @@ import { EMPTY, Observable, firstValueFrom, take, tap } from 'rxjs';
 import { PedirCitaService } from '../services/pedir-cita.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+
+
 @Component({
   selector: 'app-pedir-cita',
   templateUrl: './pedir-cita.component.html',
@@ -13,6 +15,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class PedirCitaComponent implements OnInit {
   userUid$: Observable<any> = EMPTY;
+  formattedDate: any;
+
   form = this.formBuilder.group({
     tratamiento: ['', Validators.required],
     fecha: ['', Validators.required],
@@ -28,10 +32,11 @@ export class PedirCitaComponent implements OnInit {
     public tratamientosComponent: TratamientosComponent,
     private citaService: PedirCitaService,
     private snackBar: MatSnackBar
+
   ) {
       this.init();
       (async () => {
-        // this.userUid = await this.getCitas()
+
       })();
   }
 
@@ -39,16 +44,29 @@ export class PedirCitaComponent implements OnInit {
     this.user$ = this.user$.pipe(
       tap(async (user) => {
         if(user) {
-          console.log(user);
+
           this.citasClientes = await firstValueFrom(this.citaService.getCitas(user.uid));
-          console.log(this.citasClientes);
+          console.log(this.citasClientes[0].validateCita);
+
+          const timeStamp=this.citasClientes[0].fecha;
+          const date = new Date(timeStamp.seconds * 1000);
+          const day = String(date.getDate()).padStart(2, '0');
+          const month = String(date.getMonth() + 1).padStart(2, '0');
+          const year = date.getFullYear();
+
+         this.formattedDate = `${day}/${month}/${year}`;
+
+
+
+
         }
       })
     );
 
   }
   ngOnInit() {
-    console.log(this.citasClientes);
+
+
   }
 
   async onSubmit() {
@@ -58,6 +76,7 @@ export class PedirCitaComponent implements OnInit {
         ...this.form.value,
         displayName: user?.displayName,
         idCliente: user?.uid,
+        deleteCita:false
       });
       this.openSnackBarCreate();
     }
@@ -70,6 +89,5 @@ export class PedirCitaComponent implements OnInit {
     });
   }
 
-  async getCitas() {
-  }
+
 }

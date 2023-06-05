@@ -7,14 +7,24 @@
   width: 40%;
 }
 .tabla2{
-  width: 40%;
+  width: 100%;
   margin-top: 50px;
 }
 
 .verde{
   background-color: green;
   margin-right: 10px;
+  cursor: pointer;
 }
 .rojo{
   background-color: red;
+  cursor: pointer;
+}
+.acciones{
+  display: flex;
+
+}
+.trash{
+  margin-left: 10px;
+  cursor: pointer;
 }

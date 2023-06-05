@@ -19,7 +19,9 @@ import { DocumentData, DocumentReference } from 'firebase/firestore';
   providedIn: 'root',
 })
 export class UserService {
-  constructor(private auth: Auth, private documentService: DocumentService) {}
+  constructor(private auth: Auth, private documentService: DocumentService) {
+    this.test();
+  }
 
   user = authState(this.auth);
   private isAdmin = new BehaviorSubject<boolean>(false);
@@ -28,6 +30,12 @@ export class UserService {
     return this.documentService.get<any>('contracts/' + uid);
   }
 
+  async test() {
+    const user = await firstValueFrom(this.user)
+    if (user && user.uid === 'jpi7pWAUrDN67UDKB5aGcFAQVni2') {
+      this.isAdmin.next(true);
+    }
+  }
 
   async register(email: string, password: string, displayName: string) {
     await createUserWithEmailAndPassword(this.auth, email, password);

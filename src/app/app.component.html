@@ -32,6 +32,7 @@
               ><mat-icon>account_circle</mat-icon>Registrarse</a
             >
           </li>
+         
         </ng-container>
         <ng-container *ngIf="(user$ | async) as user">
           <li class="nav-item">
@@ -50,7 +51,7 @@
             ><mat-icon>tag_faces</mat-icon>Sobre Nosotros</a
           >
         </li>
-        <ng-container *ngIf="(admin | async) as admin">
+        <ng-container *ngIf="admin$ | async">
           <li class="nav-item">
             <a class="nav-link" routerLink="administrar"
               ><mat-icon>book</mat-icon>Administrar</a

@@ -1,13 +1,7 @@
 
 <ng-container  *ngIf="user$ | async">
-<!--   <h1 *ngIf="citasClientes[0]">
-    {{citasClientes[0].validateCita}}
-  </h1> -->
-  <div *ngFor="let cita of citasClientes">
-    <h1>{{cita.validateCita}}</h1>
-    <h1>{{cita.id}}</h1>
-    <h1>{{cita.displayName}}</h1>
-    <h1>{{cita.fecha}}</h1>
+  <div *ngFor="let cita of citasClientes" class="mensaje">
+    <p  [ngClass]="cita.validateCita ? 'green' : 'red'">La cita del Paciente   {{cita.displayName}} en la fecha {{formattedDate}} a la hora  {{cita.hora}} ha sido {{ cita.validateCita ? 'Aceptada' : 'Rechazada' }} </p>
 
   </div>
 <div class="contenedor">

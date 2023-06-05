@@ -3,6 +3,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { UserService } from './services/user.service';
 import { DocumentService } from './services/document.service';
 import { firstValueFrom } from 'rxjs/internal/firstValueFrom';
+import { EMPTY, Observable, tap } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -14,24 +15,18 @@ export class AppComponent implements OnInit, OnDestroy {
   test: any;
   nombre: string = '';
   user$ = this.userService.user;
- admin=this.userService.isAdmin$
-
+  admin$: Observable<boolean> = EMPTY;
+  admin: boolean = false;
 
 
   headerClass: string = '';
   constructor(private router: Router, private userService: UserService) {
     this.verifyLoggin();
-
-
-
-
   }
 
   ngOnInit() {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        console.log(event.url);
-
         this.updateHeaderClass();
       }
     });
@@ -58,6 +53,11 @@ export class AppComponent implements OnInit, OnDestroy {
     this.router.navigate(['/login']);
   }
   verifyLoggin() {
+    this.admin$ = this.userService.isAdmin$.pipe(
+      tap(isAdmin => {
+        this.admin = isAdmin;
+      })
+    )
     return this.userService.isLogin();
   }
   logoutSession() {

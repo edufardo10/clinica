@@ -19,7 +19,7 @@ export class PedirCitaService {
 
   }
  getCitas(clientUid: string) {
-  console.log(clientUid);
+
 
    return this.documentService.list<any>('citas', [where("idCliente", "==", clientUid)]);
 }
