@@ -17,7 +17,7 @@
   border-radius: 4px;
   font-size: 16px;
   cursor: pointer;
-  margin-right: -500px;
+  margin-right: -770px;
   z-index: -100;
 }
 .custom-button:hover {
@@ -58,8 +58,8 @@ footer {
 }
 .box-avatar{
 
-  margin-right: -470px;
-  margin-bottom: 20px;
+  margin-right: -770px;
+  margin-bottom: 10px;
   text-align: center;
 
 }
@@ -76,4 +76,8 @@ footer {
   footer {
     text-align: center;
   }
+.pie{
+  background-color: rgb(73, 45, 45);
+}
+
 }

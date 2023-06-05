@@ -24,6 +24,7 @@ import { MatDatepicker } from '@angular/material/datepicker';
 import { DateAdapter } from '@angular/material/core';
 import { AdministrarComponent } from './administrar/administrar.component';
 import { AuthGuardGuard } from './guards/auth-guard.guard';
+import { NoGuardGuard } from './guards/no-guard.guard';
 
 
 @NgModule({
@@ -79,7 +80,7 @@ import { AuthGuardGuard } from './guards/auth-guard.guard';
       return Storage
     }),
   ],
-  providers: [MatSnackBarModule,AuthGuardGuard],
+  providers: [MatSnackBarModule,AuthGuardGuard,NoGuardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
