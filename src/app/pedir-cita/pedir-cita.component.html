@@ -1,9 +1,16 @@
-<div class="contenedor"  *ngIf="user$ | async" >
-  <ng-container *ngIf="citas$ | async">
-    
-    <h2>{{citasClientes[0].validateCita}}</h2>
 
-  </ng-container>
+<ng-container  *ngIf="user$ | async">
+<!--   <h1 *ngIf="citasClientes[0]">
+    {{citasClientes[0].validateCita}}
+  </h1> -->
+  <div *ngFor="let cita of citasClientes">
+    <h1>{{cita.validateCita}}</h1>
+    <h1>{{cita.id}}</h1>
+    <h1>{{cita.displayName}}</h1>
+    <h1>{{cita.fecha}}</h1>
+
+  </div>
+<div class="contenedor">
   <h1 class="text-center"  >Asigne una cita</h1>
   <form [formGroup]="form" class="mt-5">
     <div class="form-group">
@@ -52,3 +59,4 @@
   </form>
 </div>
 <hr>
+</ng-container>

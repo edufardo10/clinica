@@ -21,7 +21,6 @@ export class PedirCitaComponent implements OnInit {
    user$ = this.userService.user;
   horas: string[] = Array.from({ length: 13 }, (_, index) => `${index + 9}:00`);
   userUid!: string;
-  citas$: Observable<any[]> = EMPTY;
   citasClientes: any[] = [];
   constructor(
     private formBuilder: FormBuilder,
@@ -32,30 +31,24 @@ export class PedirCitaComponent implements OnInit {
   ) {
       this.init();
       (async () => {
-        this.userUid = await this.getCitas()
+        // this.userUid = await this.getCitas()
       })();
   }
 
   init() {
     this.user$ = this.user$.pipe(
-      tap((user) => {
+      tap(async (user) => {
         if(user) {
-          this.userUid = user.uid
+          console.log(user);
+          this.citasClientes = await firstValueFrom(this.citaService.getCitas(user.uid));
+          console.log(this.citasClientes);
         }
       })
-    )
-    this. citas$ = this.citaService.getCitas(this.userUid).pipe(
-      take(1),
-      tap((citas) => {
-        if (citas){
-          this.citasClientes = citas;
+    );
 
-        }
-      })
-    )
   }
   ngOnInit() {
-
+    console.log(this.citasClientes);
   }
 
   async onSubmit() {

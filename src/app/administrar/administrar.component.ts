@@ -29,8 +29,8 @@ export class AdministrarComponent {
   async getCitas() {
     this.citas = await firstValueFrom(this.adminsitraService.getCitas());
   }
-  setCita(id: string, acept: boolean) {
-    this.adminsitraService.validateCita({ validateCita: acept, id: id });
+  async setCita(id: string, acept: boolean) {
+    await this.adminsitraService.validateCita({ validateCita: acept, id: id });
   }
 
   obtenerFechaLegible(fechaTimestamp: any): string {
