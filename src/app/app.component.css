@@ -17,7 +17,7 @@
   border-radius: 4px;
   font-size: 16px;
   cursor: pointer;
-  margin-right: -770px;
+  margin-right: -420px;
   z-index: -100;
 }
 .custom-button:hover {
@@ -58,7 +58,7 @@ footer {
 }
 .box-avatar{
 
-  margin-right: -770px;
+  margin-right: -420px;
   margin-bottom: 10px;
   text-align: center;
 

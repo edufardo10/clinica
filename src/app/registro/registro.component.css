@@ -1,22 +1,27 @@
-
-.form-field{
-  width: 1500px;
-
-  margin-left: -550px;
-
+.form-card {
+  margin: 0 auto;
+  max-width: 700px;
+  padding: 16px;
 }
-.text-center{
-  color: black;
-  font-size: 29px;
-  font-family:Georgia, 'Times New Roman', Times, serif;
-  margin-left: -790px;
- text-decoration: underline;
+.mat-elevation-z4{
 
+  margin-top: 10px;
+  margin-left:75px ;
 }
 
-.button{
-  width: 500px;
-  height: 50px;
+
+.form-card-title {
+  font-weight: bold;
+}
+
+.form-field {
+  width: 100%;
+  margin-left: 8px;
+}
+
+.form-button {
+  width: 100%;
+  margin-top: 16px;
 }
 
 ::ng-deep .mat-mdc-snack-bar-container.verde {
